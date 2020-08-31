@@ -1,0 +1,16 @@
+<h1>Geben sie die Logindaten ein</h1>
+
+<div *ngIf="!isViewable" class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Accountname</mat-label>
+    <input [(ngModel)]="accountName" matInput>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Accountpasswort</mat-label>
+    <input [(ngModel)]="accountPW" matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>test</mat-label>
+    <input [(ngModel)]="isViewable" matInput>
+  </mat-form-field>
+</div>
