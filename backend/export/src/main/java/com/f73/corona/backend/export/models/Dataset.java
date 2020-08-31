@@ -1,9 +1,6 @@
 package com.f73.corona.backend.export.models;
 
 import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.List;
 
 @Data
