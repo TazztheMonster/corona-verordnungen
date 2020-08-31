@@ -1,5 +1,5 @@
 import { Province } from './province';
-class ProvinceData{
+export class ProvinceData{
 
     dataForAllProvinces: Province[] = [
         {name: 'Niedersachsen', personsIndoor: 10, personsOutdoor:50, householdsIndoor: 5, householdsOutdoor: 10, maskMandatory: true, buildingTypesClosed:["Schulen"], personsPsmIndoor: 1, personsPsmOutdoor: 2, other:''},
@@ -11,6 +11,6 @@ class ProvinceData{
 
     }
 
-    
+
 
 }
