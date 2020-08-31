@@ -7,15 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LoginwindowComponent implements OnInit {
+  hide: boolean = true;
+  isViewable: boolean = false;
+  enteredAccountName: String = '';
+  enteredAccountPW: String = '';
+  accountName: String = 'admin';
+  accountPW: String = 'admin'; 
+  
   constructor() {
   }
   
   ngOnInit(): void {
-    let account = { accountname: "admin", accountpw: "password"};
   }
-  
-  isViewable: boolean = false;
-  accountName: String = '';
-  accountPW: String = '';
-  
+  checkLoginData(): void{
+    if(this.enteredAccountName == this.accountName && this.enteredAccountPW == this.accountPW){
+      this.isViewable = true;
+    }
+  }
 }
