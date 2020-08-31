@@ -1,11 +1,11 @@
 package com.f73.corona.backend.export.models;
 
 import lombok.Data;
-
 import java.util.List;
 
 @Data
 public class Dataset {
+
     private Province province;
     private int personsIndoor;
     private int personsOutdoor;
@@ -15,4 +15,7 @@ public class Dataset {
     private double personsPsmOutdoor;
     private double personsPsmIndoor;
     private List<BuildingType> closedBuildingTypes;
+
+
+
 }
