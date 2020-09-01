@@ -1,1 +1,10 @@
-<p>mainwindow works!</p>
+<div class="container">
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Bundesland</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let province of provinces" [value]="province.name">{{province.name}}</mat-option>
+    </mat-select>
+    </mat-form-field>
+  </div>
+</div>

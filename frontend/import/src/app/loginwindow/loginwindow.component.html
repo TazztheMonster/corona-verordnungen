@@ -1,6 +1,6 @@
 
-<div *ngIf="!isViewable" class="example-container">
-  <h1>Geben sie die Logindaten ein</h1>
+<div *ngIf="!isViewable" class="container">
+  <h1 class="row">Geben sie die Logindaten ein</h1>
   <mat-form-field appearance="fill">
     <mat-label>Accountname</mat-label>
     <input [(ngModel)]="enteredAccountName" matInput>
@@ -9,7 +9,9 @@
     <mat-label>Accountpasswort</mat-label>
     <input [(ngModel)]="enteredAccountPW" matInput [type]="hide ? 'password' : 'text'">
   </mat-form-field>
-  <button (click)="checkLoginData()" mat-button>Einloggen</button>
+  <div>
+    <button (click)="checkLoginData()" mat-button>Einloggen</button>
+  </div>
 </div>
 
 <app-mainwindow *ngIf="isViewable"></app-mainwindow>
