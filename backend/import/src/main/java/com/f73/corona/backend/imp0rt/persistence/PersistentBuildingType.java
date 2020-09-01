@@ -1,7 +1,6 @@
-package com.f73.corona.backend.export.persistence;
+package com.f73.corona.backend.imp0rt.persistence;
 
 import lombok.Data;
-import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

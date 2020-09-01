@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.f73.corona</groupId>
-    <artifactId>backendexport</artifactId>
+    <artifactId>backendimport</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>backendexport</name>
+    <name>backendimport</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

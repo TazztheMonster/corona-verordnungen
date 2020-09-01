@@ -25,7 +25,7 @@ public class WebController {
         if (dataset.isPresent()) {
             return dataset;
         } else {
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -38,7 +38,5 @@ public class WebController {
     public List<BuildingType> getAllBuildingTypes() {
         return DataController.getAllBuildingTypes();
     }
-
-
 
 }

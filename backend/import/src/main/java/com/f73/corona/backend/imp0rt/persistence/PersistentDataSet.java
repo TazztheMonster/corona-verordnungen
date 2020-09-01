@@ -1,7 +1,6 @@
-package com.f73.corona.backend.export.persistence;
+package com.f73.corona.backend.imp0rt.persistence;
 
-import com.f73.corona.backend.export.models.BuildingType;
-import com.f73.corona.backend.export.models.Province;
+import com.f73.corona.backend.imp0rt.models.Province;
 import lombok.Data;
 
 import javax.persistence.*;

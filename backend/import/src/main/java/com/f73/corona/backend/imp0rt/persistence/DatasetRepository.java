@@ -1,4 +1,4 @@
-package com.f73.corona.backend.export.persistence;
+package com.f73.corona.backend.imp0rt.persistence;
 
 
 import org.springframework.data.repository.CrudRepository;
