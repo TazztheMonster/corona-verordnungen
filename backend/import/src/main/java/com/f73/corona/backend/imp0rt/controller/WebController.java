@@ -33,7 +33,11 @@ public class WebController {
 
     @PostMapping("/buildingType")
     public Object addBuildingType(@RequestBody String newBuildingType) {
-        DataController.addBuildingType(newBuildingType);
-        return new ResponseEntity(HttpStatus.OK);
+        boolean buildingTypeAddet = DataController.addBuildingType(newBuildingType);
+        if (buildingTypeAddet) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
