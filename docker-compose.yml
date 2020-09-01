@@ -11,12 +11,32 @@ services:
             MYSQL_ROOT_PASSWORD: 'nochVielSicherer1234!'
         networks: 
             - 'corona-net'
-        ports: 
-            - '3306:3306'
-        expose: 
-            - '3306'
         volumes:
             - my-db:/var/lib/mysql
+
+    importbackend:
+        build: ./backend/import
+        networks: 
+            - 'corona-net'
+
+    exportbackend:
+        build: ./backend/export
+        networks: 
+            - 'corona-net'
+
+    importfrontend:
+        build: ./frontend/import
+        networks: 
+            - 'corona-net'
+        ports: 
+            - '4200:4200'
+
+    exportfrontend:
+        build: ./frontend/export
+        networks: 
+            - 'corona-net'
+        ports: 
+            - '4201:4200'
 
 volumes:
     my-db:
