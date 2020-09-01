@@ -17,20 +17,19 @@ public class WebController {
 
     @PutMapping("/province")
     public Object updateProvinceData(@RequestBody List<Dataset> dataList) {
+        boolean somethingHappen = false;
 
+        for (Dataset dataset: dataList) {
+            boolean updateSuccessful = DataController.updateProvince(dataset);
+            if (updateSuccessful) {
+                somethingHappen = true;
+            }
+        }
 
-
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+        if (somethingHappen) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-
-    @RequestMapping("/provinces")
-    public List<String> getProvinces() {
-        return Stream.of(Province.values()).map(Province::name).collect(Collectors.toList());
-    }
-
-    @RequestMapping("/buildingTypes")
-    public List<BuildingType> getAllBuildingTypes() {
-        return DataController.getAllBuildingTypes();
-    }
-
 }
