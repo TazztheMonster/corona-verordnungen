@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface DatasetRepository extends CrudRepository<PersistentDataSet, String> {
 
-    Optional<PersistentDataSet> findByProvince(String province);
+    Optional<PersistentDataSet> findFirstByProvince(String province);
 
 }
