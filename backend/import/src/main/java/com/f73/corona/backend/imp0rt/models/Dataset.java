@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class Dataset {
 
-    private BuildingType province;
+    private Province province;
     private int personsIndoor;
     private int personsOutdoor;
     private int householdsIndoor;
@@ -16,7 +16,5 @@ public class Dataset {
     private double personsPsmOutdoor;
     private double personsPsmIndoor;
     private List<BuildingType> closedBuildingTypes;
-
-
 
 }
