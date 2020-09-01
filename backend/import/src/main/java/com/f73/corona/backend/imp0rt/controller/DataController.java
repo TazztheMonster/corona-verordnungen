@@ -43,5 +43,17 @@ public class DataController {
         return buildingType;
     }
 
+    public static boolean updateProvince(Dataset dataSet) {
+
+        Optional<PersistentDataSet> persistentDataSet = datasetRepository.findByProvince(dataSet.getProvince().getName());
+        if (persistentDataSet.isPresent()) {
+            BeanUtils.copyProperties(dataSet, persistentDataSet);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 
 }
