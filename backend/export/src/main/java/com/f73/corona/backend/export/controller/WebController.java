@@ -19,9 +19,7 @@ public class WebController {
 
     @RequestMapping("/province/{province}")
     public Object getProvinceData(@PathVariable String province) {
-
         Optional<Dataset> dataset = DataController.getDatasetByProvince(province);
-
         if (dataset.isPresent()) {
             return dataset;
         } else {

@@ -18,15 +18,23 @@ public class WebController {
     @PutMapping("/province")
     public Object updateProvinceData(@RequestBody List<Dataset> dataList) {
         boolean somethingHappen = false;
-
         for (Dataset dataset: dataList) {
             boolean updateSuccessful = DataController.updateProvince(dataset);
             if (updateSuccessful) {
                 somethingHappen = true;
             }
         }
-
         if (somethingHappen) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/buildingType")
+    public Object addBuildingType(@RequestBody String newBuildingType) {
+        boolean buildingTypeAddet = DataController.addBuildingType(newBuildingType);
+        if (buildingTypeAddet) {
             return new ResponseEntity(HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
