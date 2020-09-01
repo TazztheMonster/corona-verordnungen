@@ -1,0 +1,19 @@
+<div>
+<mat-label>Geben sie die Anzahl der Personen ein</mat-label>
+<mat-form-field appearance="fill">
+    <input (ngModelChange)="resetStyling()" [(ngModel)]="numberOfPersons" matInput>
+</mat-form-field>
+<mat-label>Geben sie die Anzahl der Haushalte ein</mat-label>
+<mat-form-field appearance="fill">
+    <input (ngModelChange)="resetStyling()" [(ngModel)]="numberOfHouseholds" matInput>
+</mat-form-field>
+<mat-label>Geben sie die Größe des Veranstaltungsorts in m^2 ein</mat-label>
+<mat-form-field appearance="fill">
+    <input (ngModelChange)="resetStyling()" [(ngModel)]="sizeOfGatheringPlace" matInput>
+</mat-form-field>
+<mat-label>Findet das treffen innerhalb eines geschlossenes Raumes statt?</mat-label>
+<mat-checkbox (ngModelChange)="resetStyling()" [(ngModel)]="inside"></mat-checkbox>
+</div>
+<div>
+    <button [ngClass]="{'white': notCalculatedYet,'green': isValid, 'red' : !isValid}" (click)="validateGathering()" mat-button>Veranstaltung prüfen</button>
+</div>
