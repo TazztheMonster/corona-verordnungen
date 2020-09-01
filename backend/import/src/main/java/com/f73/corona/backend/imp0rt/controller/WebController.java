@@ -30,4 +30,10 @@ public class WebController {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PostMapping("/buildingType")
+    public Object addBuildingType(@RequestBody String newBuildingType) {
+        DataController.addBuildingType(newBuildingType);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
