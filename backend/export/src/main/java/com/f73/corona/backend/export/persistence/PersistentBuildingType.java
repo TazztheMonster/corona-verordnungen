@@ -1,5 +1,6 @@
 package com.f73.corona.backend.export.persistence;
 
+import lombok.Data;
 import org.hibernate.annotations.CollectionId;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Data
 @Entity
 @Table(name = "buildingTypes")
 public class PersistentBuildingType {

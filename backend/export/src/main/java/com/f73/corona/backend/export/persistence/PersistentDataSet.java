@@ -2,10 +2,12 @@ package com.f73.corona.backend.export.persistence;
 
 import com.f73.corona.backend.export.models.BuildingType;
 import com.f73.corona.backend.export.models.Province;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "provinces")
 public class PersistentDataSet {
