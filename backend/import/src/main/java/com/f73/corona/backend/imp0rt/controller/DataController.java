@@ -19,7 +19,7 @@ public class DataController {
     private static BuildingTypeRepository buildingTypeRepository;
 
     public static boolean updateProvince(Dataset dataSet) {
-        Optional<PersistentDataSet> persistentDataSet = datasetRepository.findFirstByProvince(dataSet.getProvince().getName());
+        Optional<PersistentDataSet> persistentDataSet = datasetRepository.findFirstByProvince(dataSet.getProvince().toString());
         if (persistentDataSet.isPresent()) {
             BeanUtils.copyProperties(dataSet, persistentDataSet.get());
             datasetRepository.save(persistentDataSet.get());
