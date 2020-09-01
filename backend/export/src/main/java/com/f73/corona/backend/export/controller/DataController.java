@@ -22,11 +22,11 @@ public class DataController {
     private static BuildingTypeRepository buildingTypeRepository;
 
     public static Optional<Dataset> getDatasetByProvince(String province) {
-        PersistentDataSet persistentDataSet = datasetRepository.findByProvince(province);
-            Optional<Dataset> optionalDataset = Optional.empty();
-        if (persistentDataSet != null) {
+        Optional<PersistentDataSet> optionalPersistentDataSet = datasetRepository.findByProvince(province);
+        Optional<Dataset> optionalDataset = Optional.empty();
+        if (optionalPersistentDataSet.isPresent()) {
             Dataset dataset = new Dataset();
-            BeanUtils.copyProperties(persistentDataSet, dataset);
+            BeanUtils.copyProperties(optionalPersistentDataSet.get(), dataset);
             optionalDataset = Optional.of(dataset);
         }
         return optionalDataset;

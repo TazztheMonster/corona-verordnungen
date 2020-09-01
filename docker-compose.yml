@@ -2,12 +2,15 @@ version: '3.3'
 
 services: 
     databse:
+        container_name: 'Corona-Info-Database'
         image: mysql:latest
         environment: 
             MYSQL_DATABASE: 'coronaData'
             MYSQL_USER: 'user'
             MYSQL_PASSWORD: 'superSicher123'
             MYSQL_ROOT_PASSWORD: 'nochVielSicherer1234!'
+        networks: 
+            - 'corona-net'
         ports: 
             - '3306:3306'
         expose: 
@@ -17,3 +20,6 @@ services:
 
 volumes:
     my-db:
+networks: 
+    corona-net:
+        driver: bridge
