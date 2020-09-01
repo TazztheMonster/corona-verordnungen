@@ -21,33 +21,11 @@ public class DataController {
     @Autowired
     private static BuildingTypeRepository buildingTypeRepository;
 
-    public static Optional<Dataset> getDatasetByProvince(String province) {
-        Optional<PersistentDataSet> optionalPersistentDataSet = datasetRepository.findByProvince(province);
-        Optional<Dataset> optionalDataset = Optional.empty();
-        if (optionalPersistentDataSet.isPresent()) {
-            Dataset dataset = new Dataset();
-            BeanUtils.copyProperties(optionalPersistentDataSet.get(), dataset);
-            optionalDataset = Optional.of(dataset);
-        }
-        return optionalDataset;
-    }
-
-    public static List<BuildingType> getAllBuildingTypes() {
-        List<PersistentBuildingType> buildingTypeList = buildingTypeRepository.getAll();
-        return buildingTypeList.stream().map(e -> buildingTypefromPersistentBuildingType(e)).collect(Collectors.toList());
-    }
-
-    private static BuildingType buildingTypefromPersistentBuildingType(PersistentBuildingType persistentBuildingType) {
-        BuildingType buildingType = new BuildingType();
-        BeanUtils.copyProperties(persistentBuildingType, buildingType);
-        return buildingType;
-    }
-
     public static boolean updateProvince(Dataset dataSet) {
-
         Optional<PersistentDataSet> persistentDataSet = datasetRepository.findByProvince(dataSet.getProvince().getName());
         if (persistentDataSet.isPresent()) {
-            BeanUtils.copyProperties(dataSet, persistentDataSet);
+            BeanUtils.copyProperties(dataSet, persistentDataSet.get());
+            datasetRepository.save(persistentDataSet.get());
             return true;
         } else {
             return false;
