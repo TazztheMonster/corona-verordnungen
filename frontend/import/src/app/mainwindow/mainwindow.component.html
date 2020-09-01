@@ -1,10 +1,17 @@
 <div class="container">
+  <div class="row">Wähle ein Bundesland, für das du die Regularien updaten willst</div>
   <div class="row">
     <mat-form-field appearance="fill">
       <mat-label>Bundesland</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let province of provinces" [value]="province.name">{{province.name}}</mat-option>
+    <mat-select [(ngModel)]="selectedProvince">
+      <mat-option *ngFor="let province of provinces" [value]="province">{{province.name}}</mat-option>
     </mat-select>
-    </mat-form-field>
-  </div>
+  </mat-form-field>
+</div>
+<div>
+  <button (click)="updateProvince()" mat-button>Bundesland updaten</button>
+</div>
+<div>
+  <button (click)="updateAllProvinces()" mat-button>Alle Bundesländer updaten</button>
+</div>
 </div>

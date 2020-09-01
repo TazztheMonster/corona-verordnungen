@@ -13,10 +13,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MainwindowComponent } from './mainwindow/mainwindow.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainwindowComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">Wähle ein Bundesland, für das du die Regularien anzeigen lassen willst</div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Bundesland</mat-label>
+      <mat-select [(ngModel)]="selectedProvince">
+        <mat-option *ngFor="let province of allProvinces" [value]="province">{{province}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <button (click)="loadProvince()" mat-button>Bundesland updaten</button>
+  </div>
+</div>
+
