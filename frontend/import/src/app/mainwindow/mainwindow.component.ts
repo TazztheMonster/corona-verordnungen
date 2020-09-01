@@ -10,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MainwindowComponent implements OnInit {
 
-  baseURL: string = 'corona-net:8080/province'
+  baseURL: string = 'corona-net:8080'
+  provinceExtension: string = '/province';
+  buildingTypeExtension: string = '/buildingType';
 
   selectedProvince: Province = null;
 
@@ -28,23 +30,17 @@ export class MainwindowComponent implements OnInit {
   }
   updateProvince(): void{
     if(this.selectedProvince != null){
-      this.http.post(this.baseURL, this.selectedProvince).toPromise().then(data => {
-        console.log(data);
-      });
+      this.http.put(this.baseURL + this.provinceExtension, this.selectedProvince);
     }
   }
   updateAllProvinces(): void{
-  this.provinces.forEach(element => {
-    this.http.post(this.baseURL, element).toPromise().then(data => {
-      console.log(data);
+    this.provinces.forEach(element => {
+      this.http.put(this.baseURL + this.provinceExtension, element);
     });
-  });
 
-  this.buildingTypes.forEach(element => {
-    this.http.post(this.baseURL, element).toPromise().then(data => {
-      console.log(data);
-    });
-  })
-}
+    this.buildingTypes.forEach(element => {
+      this.http.post(this.baseURL + this.buildingTypeExtension, element);
+    })
+  }
 }
 
