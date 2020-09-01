@@ -18,14 +18,12 @@ public class WebController {
     @PutMapping("/province")
     public Object updateProvinceData(@RequestBody List<Dataset> dataList) {
         boolean somethingHappen = false;
-
         for (Dataset dataset: dataList) {
             boolean updateSuccessful = DataController.updateProvince(dataset);
             if (updateSuccessful) {
                 somethingHappen = true;
             }
         }
-
         if (somethingHappen) {
             return new ResponseEntity(HttpStatus.OK);
         } else {
