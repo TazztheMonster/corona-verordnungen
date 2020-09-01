@@ -14,11 +14,16 @@ import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainwindowComponent } from './mainwindow/mainwindow.component';
+import { ProvinceInfoWindowComponent } from './province-info-window/province-info-window.component';
+import { GatheringToEvaluateWindowComponent } from './gathering-to-evaluate-window/gathering-to-evaluate-window.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainwindowComponent
+    MainwindowComponent,
+    ProvinceInfoWindowComponent,
+    GatheringToEvaluateWindowComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,8 @@ import { MainwindowComponent } from './mainwindow/mainwindow.component';
     MatTabsModule,
     MatListModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

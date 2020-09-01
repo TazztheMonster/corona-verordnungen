@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MainwindowComponent implements OnInit {
 
+  baseURL: string = 'corona-net:8080/province'
+
   selectedProvince: Province = null;
 
   provinces: Province[] = [
@@ -18,7 +20,7 @@ export class MainwindowComponent implements OnInit {
     {name: 'Bayern', personsIndoor: 12, personsOutdoor:50, householdsIndoor: 5, householdsOutdoor: 10, maskMandatory: true, buildingTypesClosed:["Biergärten"], personsPsmIndoor: 4, personsPsmOutdoor: 6, other:'Kein Bier macht uns traurig'}
   ];
 
-  buildingTypes: String[] = ["Restaurants", "Schulen", "Sporthallen", "Büros", "Biergärten"];
+  buildingTypes: string[] = ["Restaurants", "Schulen", "Sporthallen", "Büros", "Biergärten"];
 
   constructor(private http: HttpClient) { }
 
@@ -26,20 +28,20 @@ export class MainwindowComponent implements OnInit {
   }
   updateProvince(): void{
     if(this.selectedProvince != null){
-      this.http.post('http://httpbin.org/post ', this.selectedProvince).toPromise().then(data => {
+      this.http.post(this.baseURL, this.selectedProvince).toPromise().then(data => {
         console.log(data);
       });
     }
   }
   updateAllProvinces(): void{
   this.provinces.forEach(element => {
-    this.http.post('http://httpbin.org/post ', element).toPromise().then(data => {
+    this.http.post(this.baseURL, element).toPromise().then(data => {
       console.log(data);
     });
   });
 
   this.buildingTypes.forEach(element => {
-    this.http.post('http://httpbin.org/post ', element).toPromise().then(data => {
+    this.http.post(this.baseURL, element).toPromise().then(data => {
       console.log(data);
     });
   })
