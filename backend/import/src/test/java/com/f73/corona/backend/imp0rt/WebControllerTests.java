@@ -60,4 +60,9 @@ public class WebControllerTests {
         log.info(String.valueOf(actions.andReturn().getResponse().getStatus()));
         log.info(actions.andReturn().getResponse().getContentAsString());
     }
+
+    @Test
+    public void testAddBuildingType() throws Exception {
+        ResultActions actions = mvc.perform(MockMvcRequestBuilders.post("/province").contentType(MediaType.APPLICATION_JSON).content("haus"));
+    }
 }
