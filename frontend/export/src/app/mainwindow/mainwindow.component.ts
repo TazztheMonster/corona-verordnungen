@@ -10,7 +10,9 @@ import { ProvinceService } from '../province.service';
 })
 export class MainwindowComponent implements OnInit {
 
-  baseURL: String = 'corona-net:8080/'
+  baseURL: String = 'http://exportbackend:8080'
+  provinceExtension: string = '/province/';
+  buildingTypeExtension: string = '/buildingType';
   selectedProvince: String = null;
   loadedProvince: Province;
   allProvinces: String[] = ['Niedersachsen', 'Nrw', 'Bayern', 'Hamburg'];
@@ -24,7 +26,7 @@ export class MainwindowComponent implements OnInit {
 
   ngOnInit(): void {
     this.provinceData.currentProvince.subscribe(province => this.loadedProvince = province);
-    this.http.get('http://httpbin.org/post ' + this.provinces[0]).toPromise().then(data => {
+    this.http.get(this.baseURL + this.provinceExtension + this.provinces[0]).toPromise().then(data => {
       console.log(data);
     });
     
@@ -35,6 +37,9 @@ export class MainwindowComponent implements OnInit {
     this.loadedProvince = this.provinces.find(province => province.name == this.selectedProvince);
     console.log(this.loadedProvince);
     this.provinceData.changeProvince(this.loadedProvince);
+    this.http.get(this.baseURL + this.provinceExtension + this.selectedProvince).toPromise().then(data => {
+      console.log(data);
+    });
   }
 
 }
