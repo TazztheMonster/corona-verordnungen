@@ -1,10 +1,12 @@
 package com.f73.corona.backend.imp0rt.models;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
+@ToString
 public class Dataset {
 
     private Province province;
