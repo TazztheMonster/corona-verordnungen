@@ -12,7 +12,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class MainwindowComponent implements OnInit {
 
-  baseURL: string = 'http://localhost:8080'
+  baseURL: string = 'http://localhost:8082'
   provinceExtension: string = '/province';
   buildingTypeExtension: string = '/buildingType';
 
