@@ -1,7 +1,21 @@
-<div class="row"><mat-label>Maximale Anzahl Personen in geschlossenen Räumen: </mat-label><mat-label>{{provinceToDisplay.personsIndoor}}</mat-label></div>
-<div class="row"><mat-label>Maximale Anzahl Personen außerhalb geschlossenen Räumen: </mat-label><mat-label>{{provinceToDisplay.personsOutdoor}}</mat-label></div>
-<div class="row"><mat-label>Maximale Anzahl Haushalte in geschlossenen Räumen: </mat-label><mat-label>{{provinceToDisplay.householdsIndoor}}</mat-label></div>
-<div class="row"><mat-label>Maximale Anzahl Haushalte außerhalb geschlossenen Räumen: </mat-label><mat-label>{{provinceToDisplay.householdsOutdoor}}</mat-label></div>
-<div class="row"><mat-label>Maskenpflicht: </mat-label><mat-label>{{provinceToDisplay.maskMandatory}}</mat-label></div>
-<div class="row"><mat-label>Maximale Teilnehmerzahl pro m^2 Fläche in geschlossenen Räumen: </mat-label><mat-label>{{provinceToDisplay.personsPsmIndoor}}</mat-label></div>
-<div class="row"><mat-label>Maximale Teilnehmerzahl pro m^2 Fläche außerhalb geschlossener Räume: </mat-label><mat-label>{{provinceToDisplay.personsPsmOutdoor}}</mat-label></div>
+<div class="card">
+  <div style="display: flex; width: 30%; margin: auto" class="card-body">
+    <div style="display:flex; flex-direction: column;">
+      <div><mat-label>Maximale Anzahl Personen in geschlossenen Räumen: </mat-label></div>
+      <div><mat-label>Maximale Anzahl Personen außerhalb geschlossenen Räumen: </mat-label></div>
+      <div><mat-label>Maximale Anzahl Haushalte in geschlossenen Räumen: </mat-label></div>
+      <div><mat-label>Maximale Anzahl Haushalte außerhalb geschlossenen Räumen: </mat-label></div>
+      <div><mat-label>Maskenpflicht: </mat-label></div>
+      <div><mat-label>Maximale Teilnehmerzahl pro m^2 Fläche in geschlossenen Räumen: </mat-label></div>
+      <div><mat-label>Maximale Teilnehmerzahl pro m^2 Fläche außerhalb geschlossener Räume: </mat-label></div>
+    </div>
+    <div style="display:flex; flex-direction: column; text-align: right;">
+      <div><mat-label>{{provinceToDisplay.personsIndoor}}</mat-label></div>
+      <div><mat-label>{{provinceToDisplay.personsOutdoor}}</mat-label></div>
+      <div><mat-label>{{provinceToDisplay.householdsIndoor}}</mat-label></div>
+      <div><mat-label>{{provinceToDisplay.householdsOutdoor}}</mat-label></div>
+      <div><mat-label>{{provinceToDisplay.maskMandatory}}</mat-label></div>
+      <div><mat-label>{{provinceToDisplay.personsPsmIndoor}}</mat-label></div>
+      <div><mat-label>{{provinceToDisplay.personsPsmOutdoor}}</mat-label></div>
+    </div>
+</div>
