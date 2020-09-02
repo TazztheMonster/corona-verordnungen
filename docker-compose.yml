@@ -1,8 +1,7 @@
 version: '3.3'
 
 services: 
-    databse:
-        container_name: 'Corona-Info-Database'
+    database:
         image: mysql:latest
         environment: 
             MYSQL_DATABASE: 'coronaData'
@@ -18,25 +17,35 @@ services:
         build: ./backend/import
         networks: 
             - 'corona-net'
+        depends_on: 
+            - 'database'
 
     exportbackend:
         build: ./backend/export
         networks: 
             - 'corona-net'
+        depends_on: 
+           - 'database'
 
     importfrontend:
         build: ./frontend/import
         networks: 
             - 'corona-net'
         ports: 
-            - '4200:4200'
+            - '443:443'
+            - '8080:80'
+        depends_on: 
+            - 'database'
 
     exportfrontend:
         build: ./frontend/export
         networks: 
             - 'corona-net'
         ports: 
-            - '4201:4200'
+            - '442:443'
+            - '8081:80'
+        depends_on: 
+            - 'database'
 
 volumes:
     my-db:
