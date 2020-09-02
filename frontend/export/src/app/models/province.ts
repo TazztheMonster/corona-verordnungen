@@ -1,5 +1,5 @@
 export class Province {
-    name: String;
+    province: String;
     //Maximum number of persons in an indoor Gathering
     personsIndoor: number;
     personsOutdoor: number;
