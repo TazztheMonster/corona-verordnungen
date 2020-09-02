@@ -14,6 +14,7 @@ public class Dataset {
     private boolean maskMandatory;
     private double personsPsmOutdoor;
     private double personsPsmIndoor;
+    private String other;
     private List<BuildingType> closedBuildingTypes;
 
 

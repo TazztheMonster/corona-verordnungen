@@ -21,6 +21,7 @@ public class PersistentDataSet {
     private boolean maskMandatory;
     private double personsPsmOutdoor;
     private double personsPsmIndoor;
+    private String other;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "buildingTypes",
             joinColumns = {

@@ -9,14 +9,14 @@ services:
             MYSQL_PASSWORD: 'superSicher123'
             MYSQL_ROOT_PASSWORD: 'nochVielSicherer1234!'
         networks: 
-            - 'corona-net'
+            - 'host'
         volumes:
             - my-db:/var/lib/mysql
 
     importbackend:
         build: ./backend/import
         networks: 
-            - 'corona-net'
+            - 'host'
         depends_on: 
             - 'database'
         ports: 
@@ -25,7 +25,7 @@ services:
     exportbackend:
         build: ./backend/export
         networks: 
-            - 'corona-net'
+            - 'host'
         depends_on: 
            - 'database'
         ports:
@@ -34,7 +34,7 @@ services:
     importfrontend:
         build: ./frontend/import
         networks: 
-            - 'corona-net'
+            - 'host'
         ports: 
             - '443:443'
             - '8080:80'
@@ -44,7 +44,7 @@ services:
     exportfrontend:
         build: ./frontend/export
         networks: 
-            - 'corona-net'
+            - 'host'
         ports: 
             - '442:443'
             - '8081:80'
@@ -54,5 +54,4 @@ services:
 volumes:
     my-db:
 networks: 
-    corona-net:
-        driver: host
+    host:
