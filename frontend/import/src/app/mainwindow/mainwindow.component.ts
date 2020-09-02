@@ -32,19 +32,18 @@ export class MainwindowComponent implements OnInit {
   }
   updateProvince(): void{
     if(this.selectedProvince != null){
-      this.http.put(this.baseURL + this.provinceExtension, this.selectedProvince);
+      this.http.put(this.baseURL + this.provinceExtension, this.selectedProvince).toPromise();
     }
   }
   updateAllProvinces(): void{
     this.provinces.forEach(element => {
-      this.http.put(this.baseURL + this.provinceExtension, element);
+      this.http.put(this.baseURL + this.provinceExtension, element).toPromise();
       console.log(element);
     });
 
     this.buildingTypes.forEach(element => {
-      this.http.post(this.baseURL + this.buildingTypeExtension, element);
+      this.http.post(this.baseURL + this.buildingTypeExtension, element).toPromise();
     })
   }
- 
 }
 
