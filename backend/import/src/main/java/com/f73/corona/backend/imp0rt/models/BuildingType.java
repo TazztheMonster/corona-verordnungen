@@ -4,5 +4,6 @@ import lombok.Data;
 
 @Data
 public class BuildingType {
-    private String name;
+    private int id;
+    private String buildingType;
 }
