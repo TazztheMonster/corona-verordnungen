@@ -10,7 +10,10 @@ import java.util.List;
 @Entity
 @Table(name = "provinces")
 public class PersistentDataSet {
+
     @Id
+    private int id;
+    @Enumerated
     @Column(name = "province")
     private Province province;
     private int personsIndoor;
@@ -24,10 +27,10 @@ public class PersistentDataSet {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "buildingTypes",
             joinColumns = {
-                    @JoinColumn(name = "province", referencedColumnName = "province",
+                    @JoinColumn(name = "provinces", referencedColumnName = "province",
                             nullable = false, updatable = false)},
             inverseJoinColumns = {
-                    @JoinColumn(name = "buildingTypeId", referencedColumnName = "id",
+                    @JoinColumn(name = "buildingTypes", referencedColumnName = "id",
                             nullable = false, updatable = false)})
     private List<PersistentBuildingType> closedBuildingTypes;
 
