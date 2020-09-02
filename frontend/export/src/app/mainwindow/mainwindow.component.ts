@@ -10,7 +10,7 @@ import { ProvinceService } from '../province.service';
 })
 export class MainwindowComponent implements OnInit {
 
-  baseURL: String = 'http://exportbackend:8080'
+  baseURL: String = 'http://localhost:8080'
   provinceExtension: string = '/province/';
   buildingTypeExtension: string = '/buildingType';
   selectedProvince: String = null;
