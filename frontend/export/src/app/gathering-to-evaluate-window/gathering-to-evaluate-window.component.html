@@ -2,15 +2,15 @@
   <div style="padding: 20px" class="card">
   <mat-label style="padding: 15px">Tragen sie die Daten der zu prüfenden Veranstaltung ein.</mat-label>
   <mat-label>Geben sie die Anzahl der Personen ein</mat-label>
-  <mat-form-field style="width: 10%; margin: auto" appearance="fill">
+  <mat-form-field class="text-center" style="width: 10%; margin: auto" appearance="fill">
       <input (ngModelChange)="resetStyling()" [(ngModel)]="numberOfPersons" matInput>
   </mat-form-field>
   <mat-label>Geben sie die Anzahl der Haushalte ein</mat-label>
-  <mat-form-field style="width: 10%; margin: auto" appearance="fill">
+  <mat-form-field class="text-center" style="width: 10%; margin: auto" appearance="fill">
       <input (ngModelChange)="resetStyling()" [(ngModel)]="numberOfHouseholds" matInput>
   </mat-form-field>
   <mat-label>Geben sie die Größe des Veranstaltungsorts in m^2 ein</mat-label>
-  <mat-form-field style="width: 10%; margin: auto" appearance="fill">
+  <mat-form-field class="text-center" style="width: 10%; margin: auto" appearance="fill">
       <input (ngModelChange)="resetStyling()" [(ngModel)]="sizeOfGatheringPlace" matInput>
   </mat-form-field>
   <mat-label>Findet das treffen innerhalb eines geschlossenes Raumes statt?</mat-label>
