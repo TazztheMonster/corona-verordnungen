@@ -1,17 +1,18 @@
-
-<div *ngIf="!isViewable" class="container">
-  <h1 class="row">Geben sie die Logindaten ein</h1>
-  <mat-form-field appearance="fill">
-    <mat-label>Accountname</mat-label>
-    <input [(ngModel)]="enteredAccountName" matInput>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Accountpasswort</mat-label>
-    <input [(ngModel)]="enteredAccountPW" matInput [type]="hide ? 'password' : 'text'">
-  </mat-form-field>
-  <div>
-    <button (click)="checkLoginData()" mat-button>Einloggen</button>
+<div class="container">
+  <div *ngIf="!isViewable" class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Geben sie die Logindaten ein</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Accountname</mat-label>
+      <input [(ngModel)]="enteredAccountName" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Accountpasswort</mat-label>
+      <input [(ngModel)]="enteredAccountPW" matInput [type]="hide ? 'password' : 'text'">
+    </mat-form-field>
+    <div>
+      <button (click)="checkLoginData()" mat-button>Einloggen</button>
+    </div>
   </div>
+  
+  <app-mainwindow *ngIf="isViewable"></app-mainwindow>
 </div>
-
-<app-mainwindow *ngIf="isViewable"></app-mainwindow>

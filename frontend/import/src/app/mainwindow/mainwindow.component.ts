@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Province } from '../models/province'
 import { ProvinceData } from '../models/provinceData'
 import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-mainwindow',
@@ -36,11 +38,13 @@ export class MainwindowComponent implements OnInit {
   updateAllProvinces(): void{
     this.provinces.forEach(element => {
       this.http.put(this.baseURL + this.provinceExtension, element);
+      console.log(element);
     });
 
     this.buildingTypes.forEach(element => {
       this.http.post(this.baseURL + this.buildingTypeExtension, element);
     })
   }
+ 
 }
 
