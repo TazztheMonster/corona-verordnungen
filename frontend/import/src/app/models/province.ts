@@ -7,7 +7,7 @@ export class Province {
     householdsIndoor: number;
     householdsOutdoor: number;
     maskMandatory: boolean;
-    buildingTypesClosed: BuildingType[];
+    closedBuildingTypes: BuildingType[];
     //Person per square meter indoors
     personsPsmIndoor: number;
     //Person per square meter outdoors
