@@ -13,8 +13,9 @@ import java.util.List;
 @ToString
 @Data
 @Entity
-@Table(name = "provinces")
+@Table(name = "dataset")
 public class PersistentDataSet implements Serializable {
+
     @Id
     @GeneratedValue
     private int id;
@@ -30,22 +31,12 @@ public class PersistentDataSet implements Serializable {
     private double personsPsmIndoor;
     private String other;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "buildingTypes",
+    @JoinTable(name = "closedBuildingTypes",
             joinColumns = {
-                    @JoinColumn(name = "province", referencedColumnName = "province",
+                    @JoinColumn(name = "dataset", referencedColumnName = "id",
                             nullable = false, updatable = false)},
             inverseJoinColumns = {
                     @JoinColumn(name = "buildingTypes", referencedColumnName = "id",
                             nullable = false, updatable = false)})
-    private List<PersistentBuildingType> closedBuildingTypesList;
-
-
-    public PersistentDataSet () {
-        closedBuildingTypesList = new ArrayList<>();
-    }
-
-    public void addClosedBuildingType(PersistentBuildingType pcbt) {
-        closedBuildingTypesList.add(pcbt);
-    }
-
+    private List<PersistentBuildingType> closedBuildingTypes;
 }
