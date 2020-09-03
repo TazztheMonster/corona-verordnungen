@@ -14,8 +14,8 @@ export class Province {
     personsPsmOutdoor: number;
     other: String;
 
-    constructor(){
-        
+    constructor(obj?: any){
+        Object.assign(this, obj);
     }
 
 }

@@ -15,31 +15,24 @@ export class MainwindowComponent implements OnInit {
   buildingTypeExtension: string = '/buildingType';
   selectedProvince: String = null;
   loadedProvince: Province;
-  allProvinces: String[] = ['Niedersachsen', 'Nrw', 'Bayern', 'Hamburg'];
-  provinces: Province[] = [
-    {province: 'Niedersachsen', personsIndoor: 10, personsOutdoor:50, householdsIndoor: 5, householdsOutdoor: 10, maskMandatory: true, buildingTypesClosed:[{buildingType : 'Schulen'}], personsPsmIndoor: 1, personsPsmOutdoor: 2, other:''},
-    {province: 'Nrw', personsIndoor: 8, personsOutdoor:40, householdsIndoor: 4, householdsOutdoor: 8, maskMandatory: false, buildingTypesClosed:[{buildingType : 'Schulen'}], personsPsmIndoor: 2, personsPsmOutdoor: 5, other:''},
-    {province: 'Bayern', personsIndoor: 12, personsOutdoor:50, householdsIndoor: 5, householdsOutdoor: 10, maskMandatory: true, buildingTypesClosed:[{buildingType : 'Biergärten'}], personsPsmIndoor: 4, personsPsmOutdoor: 6, other:'Kein Bier macht uns traurig'}
-  ];
-
+  allProvinces: String[] = ['BERLIN', 'BRANDENBURG', 'SAXONY_ANHALT', 'SAXONY', 'THURINGA', 'MECKLENBURG_WEST_POMERANIA', 'SCHLESWIG_HOLSTEIN', 'LOWER_SAXONY',  'HAMBURG', 'BREMEN', 'HESSEN', 'RHINELAND_PALATINATE', 'BADEN_WURTTEMBERG', 'SAARLAND', 'BAVARIA', 'NORTH_RHINE_WESTPHALIA'];
+  
   constructor(private http: HttpClient, private provinceData: ProvinceService) { }
 
+
+  
   ngOnInit(): void {
     this.provinceData.currentProvince.subscribe(province => this.loadedProvince = province);
-    this.http.get(this.baseURL + this.provinceExtension + this.provinces[0]).toPromise().then(data => {
-      console.log(data);
-    });
-    
   }
 
   loadProvince(): void{
     console.log(this.selectedProvince);
-    this.loadedProvince = this.provinces.find(province => province.province == this.selectedProvince);
+    this.http.get<Province>(this.baseURL + this.provinceExtension + this.selectedProvince).subscribe(
+      (data) => {
+      this.loadedProvince = new Province(data);
+      }
+    ) 
     console.log(this.loadedProvince);
-    this.provinceData.changeProvince(this.loadedProvince);
-    this.http.get(this.baseURL + this.provinceExtension + this.selectedProvince).toPromise().then(data => {
-      console.log(data);
-    });
-  }
-
+    this.provinceData.changeProvince(this.loadedProvince);   
+}
 }
