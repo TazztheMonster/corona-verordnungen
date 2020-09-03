@@ -9,8 +9,8 @@ import java.util.Optional;
 public interface BuildingTypeRepository extends CrudRepository<PersistentBuildingType, Integer> {
 
     @Query("SELECT '*' FROM PersistentBuildingType")
-    public List<PersistentBuildingType> getAll();
+    List<PersistentBuildingType> getAll();
 
-    public Optional<PersistentBuildingType> findFirstByBuildingType(String buildingType);
+    Optional<PersistentBuildingType> findFirstByBuildingType(String buildingType);
 
 }

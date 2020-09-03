@@ -4,14 +4,16 @@ import com.f73.corona.backend.imp0rt.models.Province;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "provinces")
-public class PersistentDataSet {
+public class PersistentDataSet implements Serializable {
 
     @Id
+    @GeneratedValue
     private int id;
     @Enumerated
     @Column(name = "province")

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,9 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "provinces")
-public class PersistentDataSet {
+public class PersistentDataSet implements Serializable {
     @Id
+    @GeneratedValue
     private int id;
     @Enumerated
     @Column(name = "province")
