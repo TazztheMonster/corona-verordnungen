@@ -2,10 +2,7 @@ package com.f73.corona.backend.imp0rt.persistence;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
@@ -14,6 +11,7 @@ import java.io.Serializable;
 public class PersistentBuildingType implements Serializable {
     @Id
     @Column(name = "id")
+    @GeneratedValue
     private int id;
     @Column(name = "buildingType")
     private String buildingType;
