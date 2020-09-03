@@ -63,6 +63,7 @@ public class WebControllerTests {
 
     @Test
     public void testAddBuildingType() throws Exception {
-        ResultActions actions = mvc.perform(MockMvcRequestBuilders.post("/province").contentType(MediaType.APPLICATION_JSON).content("haus"));
+        ResultActions actions = mvc.perform(MockMvcRequestBuilders.post("/buildingType").contentType(MediaType.APPLICATION_JSON).content("haus"));
+        log.info(String.valueOf(actions.andReturn().getResponse().getStatus()));
     }
 }

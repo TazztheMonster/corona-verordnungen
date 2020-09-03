@@ -8,12 +8,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @ToString
 @Data
 @Entity
 @Table(name = "buildingTypes")
-public class PersistentBuildingType {
+public class PersistentBuildingType implements Serializable {
     @Id
     @Column(name = "id")
     private int id;
