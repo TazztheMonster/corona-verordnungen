@@ -8,6 +8,6 @@ import java.util.List;
 public interface BuildingTypeRepository extends CrudRepository<PersistentBuildingType, Integer> {
 
     @Query("SELECT '*' FROM PersistentBuildingType")
-    public List<PersistentBuildingType> getAll();
+    List<PersistentBuildingType> getAll();
 
 }
