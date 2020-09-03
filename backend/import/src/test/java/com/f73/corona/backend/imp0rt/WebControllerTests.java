@@ -50,8 +50,8 @@ public class WebControllerTests {
                 "  \"householdsIndoor\": 5,\n" +
                 "  \"householdsOutdoor\": 10,\n" +
                 "  \"maskMandatory\": true,\n" +
-                "  \"buildingTypesClosed\": [{\n" +
-                "    \"name\":\"Biergärten\"\n" +
+                "  \"closedBuildingTypes\": [{\n" +
+                "    \"buildingType\":\"Biergärten\"\n" +
                 "  }],\n" +
                 "  \"personsPsmIndoor\": 4,\n" +
                 "  \"personsPsmOutdoor\": 6,\n" +

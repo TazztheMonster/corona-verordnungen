@@ -28,3 +28,7 @@ How to use:
 	Access the public website
 		http://localhosst:8081
 
+Known bug:
+	On the first start, the java applications crash, cause the database isnt't fast enough.
+	Just restart, on the second try, it works fine.
+
