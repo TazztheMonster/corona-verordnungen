@@ -1,6 +1,6 @@
-<div class="container">
-    <div class="row">Wähle ein Bundesland, für das du die Regularien anzeigen lassen willst</div>
-    <div class="row">
+<div style="padding: 20px">
+    <div class="text-center">Wähle ein Bundesland, für das sie die Regularien anzeigen lassen wollen</div>
+    <div class="text-center">
       <mat-form-field appearance="fill">
         <mat-label>Bundesland</mat-label>
       <mat-select [(ngModel)]="selectedProvince">
@@ -8,7 +8,7 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <div>
+  <div class="text-center">
     <button (click)="loadProvince()" mat-button>Regularien anzeigen</button>
   </div>
   <app-province-info-window></app-province-info-window>
