@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "provinces")
+@Table(name = "dataset")
 public class PersistentDataSet implements Serializable {
 
     @Id
@@ -27,9 +27,9 @@ public class PersistentDataSet implements Serializable {
     private double personsPsmIndoor;
     private String other;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "buildingTypes",
+    @JoinTable(name = "closedBuildingTypes",
             joinColumns = {
-                    @JoinColumn(name = "provinces", referencedColumnName = "province",
+                    @JoinColumn(name = "dataset", referencedColumnName = "id",
                             nullable = false, updatable = false)},
             inverseJoinColumns = {
                     @JoinColumn(name = "buildingTypes", referencedColumnName = "id",
