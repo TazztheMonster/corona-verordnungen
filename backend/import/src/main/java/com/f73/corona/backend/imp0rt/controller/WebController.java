@@ -25,12 +25,8 @@ public class WebController {
     @PutMapping("/province")
     public ResponseEntity updateProvinceData(@RequestBody Dataset dataset) {
         log.info(dataset.toString());
-        boolean somethingHappen = false;
         boolean updateSuccessful = dataController.updateProvince(dataset);
         if (updateSuccessful) {
-            somethingHappen = true;
-        }
-        if (somethingHappen) {
             return ResponseEntity.ok().build();
         } else {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
