@@ -1,3 +1,4 @@
+import { BuildingType } from './buildingType';
 export class Province {
     province: String;
     //Maximum number of persons in an indoor Gathering
@@ -6,7 +7,7 @@ export class Province {
     householdsIndoor: number;
     householdsOutdoor: number;
     maskMandatory: boolean;
-    buildingTypesClosed: String[];
+    buildingTypesClosed: BuildingType[];
     //Person per square meter indoors
     personsPsmIndoor: number;
     //Person per square meter outdoors
