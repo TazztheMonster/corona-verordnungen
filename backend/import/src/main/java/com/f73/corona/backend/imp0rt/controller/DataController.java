@@ -28,16 +28,10 @@ public class DataController {
             dataSet.setClosedBuildingTypes(new ArrayList<>());
         }
         Optional<PersistentDataSet> persistentDataSet = datasetRepository.findFirstByProvince(dataSet.getProvince());
-        if (persistentDataSet.isPresent()) {
-            BeanUtils.copyProperties(dataSet, persistentDataSet.get());
-            datasetRepository.save(persistentDataSet.get());
+        if (dataSet.getProvince() != null) {
+            datasetRepository.save(new PersistentDataSet(dataSet));
             return true;
         } else {
-            if (dataSet.getProvince() != null) {
-                PersistentDataSet pds = Converter.convertToPersistentDataSet(dataSet);
-                datasetRepository.save(pds);
-                return true;
-            }
             return false;
         }
 

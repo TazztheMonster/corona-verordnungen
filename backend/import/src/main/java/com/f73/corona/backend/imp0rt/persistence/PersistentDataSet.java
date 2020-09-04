@@ -1,7 +1,9 @@
 package com.f73.corona.backend.imp0rt.persistence;
 
+import com.f73.corona.backend.imp0rt.models.Dataset;
 import com.f73.corona.backend.imp0rt.models.Province;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,6 +12,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "dataset")
+@NoArgsConstructor
 public class PersistentDataSet implements Serializable {
 
     @Id
@@ -35,5 +38,17 @@ public class PersistentDataSet implements Serializable {
                     @JoinColumn(name = "buildingTypes", referencedColumnName = "id",
                             nullable = false, updatable = false)})
     private List<PersistentBuildingType> closedBuildingTypes;
+
+    public PersistentDataSet(Dataset dataset){
+        this.province = dataset.getProvince();
+        this.personsIndoor = dataset.getPersonsIndoor();
+        this.personsOutdoor = dataset.getPersonsOutdoor();
+        this.householdsIndoor = dataset.getHouseholdsIndoor();
+        this.householdsOutdoor = dataset.getHouseholdsOutdoor();
+        this.maskMandatory = dataset.isMaskMandatory();
+        this.personsPsmOutdoor = dataset.getPersonsPsmOutdoor();
+        this.personsPsmIndoor = dataset.getPersonsPsmIndoor();
+
+    }
 
 }

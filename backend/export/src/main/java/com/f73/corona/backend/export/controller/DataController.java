@@ -27,12 +27,13 @@ public class DataController {
     private BuildingTypeRepository buildingTypeRepository;
 
     public Optional<Dataset> getDatasetByProvince(Province province) {
-
-        Optional<PersistentDataSet> optionalPersistentDataSet = datasetRepository.findByProvince(province);
+        log.info(province.toString());
+        Optional<PersistentDataSet> optionalPersistentDataSet = datasetRepository.findFirstByProvince(province);
+        log.info(optionalPersistentDataSet.toString());
         Optional<Dataset> optionalDataset = Optional.empty();
         if (optionalPersistentDataSet.isPresent()) {
-            Dataset dataset = new Dataset();
-            BeanUtils.copyProperties(optionalPersistentDataSet.get(), dataset);
+            Dataset dataset = new Dataset(optionalPersistentDataSet.get());
+            log.info(dataset.toString());
             optionalDataset = Optional.of(dataset);
         }
         return optionalDataset;

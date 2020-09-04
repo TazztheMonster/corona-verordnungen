@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,11 +24,11 @@ public class WebController {
     DataController dataController;
 
     @GetMapping("/province/{province}")
-    public Object getProvinceData(@PathVariable String provinceString) {
-        Province province = Province.valueOf(provinceString);
-        Optional<Dataset> dataset = dataController.getDatasetByProvince(province);
+    public Object getProvinceData(@PathVariable String province) {
+        Optional<Dataset> dataset = dataController.getDatasetByProvince(Province.valueOf(province));
+        log.info(dataset.toString());
         if (dataset.isPresent()) {
-            return dataset;
+            return new ResponseEntity<Dataset>(dataset.get(), HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
