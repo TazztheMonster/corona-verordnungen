@@ -1,3 +1,8 @@
+Das hier ist das Ergebniss einer Zwischenprüfung mit wenig Zeit.
+Der Funktionsumpfang und die Nutzbarkeit ist sehr eingeschränkt und soll nur zu "Vorstellungs zwecken" dienen.
+
+
+
 Requirements:
 	JavaSDK 1.8 or higher
 	NPM
